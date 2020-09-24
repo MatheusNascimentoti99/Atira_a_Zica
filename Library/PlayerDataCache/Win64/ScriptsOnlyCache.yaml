@@ -112,6 +112,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -665,6 +667,6 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 19
   scenePathNames:
-  - Assets/Scenes/Gameplay.unity
   - Assets/Scenes/Home.unity
-  playerPath: C:/Users/Matheus Nascimento/Documents/Space invaders/Space invaders.exe
+  - Assets/Scenes/Gameplay.unity
+  playerPath: C:/Users/Matheus Nascimento/teste/Space invaders.exe

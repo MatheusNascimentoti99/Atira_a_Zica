@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerControler : MonoBehaviour
 
     private float enemyPopOut;
     private float lastShot;
+    private float timeGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +29,15 @@ public class PlayerControler : MonoBehaviour
     {
         Move();
         Shot();
-        if(blood <= 0)
+        
+        if (blood <= 0)
         {
             LevelManager.levelManeger.Gameover(score);
         }
     }
     private void FixedUpdate()
     {
+        timeGame += Time.deltaTime;
         MakeEnemy();
     }
 
@@ -65,7 +69,7 @@ public class PlayerControler : MonoBehaviour
 
     private void MakeEnemy()
     {
-        if (enemyPopOut > 3 - Time.time / 200)
+        if (enemyPopOut > 3 - timeGame / 30)
         {
             int positionX = Random.Range(-8, 8);
             Instantiate(MosquitoPrefab, new Vector2(positionX, 5), Quaternion.identity);
@@ -73,6 +77,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         enemyPopOut += Time.deltaTime;
+        
     }
 
 
