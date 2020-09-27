@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,7 @@ public class PlayerControler : MonoBehaviour
     public Text txt_score;
     public Text txt_blood;
     private int score;
-    private int blood = 10;
+    public int blood = 10;
 
     private float enemyPopOut;
     private float lastShot;
@@ -21,6 +22,7 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        upBlood();
         UpHighScore();
     }
 
@@ -29,7 +31,6 @@ public class PlayerControler : MonoBehaviour
     {
         Move();
         Shot();
-        
         if (blood <= 0)
         {
             LevelManager.levelManeger.Gameover(score);
@@ -57,7 +58,7 @@ public class PlayerControler : MonoBehaviour
 
     private void Shot()
     {
-        if (Input.GetButton("Jump") && lastShot > 0.5)
+        if (Input.GetButton("Jump") && lastShot >  1.5/ Math.Sqrt(timeGame))
         {
             GetComponent<AudioSource>().Play();
             Instantiate(ShotPrefab, new Vector2(this.transform.position.x, this.transform.position.y + 2), Quaternion.identity);
@@ -69,9 +70,9 @@ public class PlayerControler : MonoBehaviour
 
     private void MakeEnemy()
     {
-        if (enemyPopOut > 3 - timeGame / 30)
+        if (enemyPopOut > 5/Math.Sqrt(timeGame))
         {
-            int positionX = Random.Range(-8, 8);
+            int positionX = UnityEngine.Random.Range(-8, 8);
             Instantiate(MosquitoPrefab, new Vector2(positionX, 5), Quaternion.identity);
             enemyPopOut = 0;
         }

@@ -298,12 +298,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdd1f089aafd6741898ef50be1e3c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   MosquitoPrefab: {fileID: 7078483682778683273, guid: cf4751277cba6b741884aec150e97ce2, type: 3}
   ShotPrefab: {fileID: 7963573831335768495, guid: 8779884ffeb858245a34754d9f2face5, type: 3}
   txt_highScore: {fileID: 2107666234}
   txt_score: {fileID: 1855984649}
   txt_blood: {fileID: 128953417}
+  blood: 25
 --- !u!82 &442240186
 AudioSource:
   m_ObjectHideFlags: 0
